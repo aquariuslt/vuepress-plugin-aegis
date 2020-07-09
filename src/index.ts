@@ -4,7 +4,7 @@ export interface AegisPluginOptions {
   aegisId: string | number;
 }
 
-const aegisPlugin = (options: AegisPluginOptions, context) => ({
+const aegisPlugin = (options: AegisPluginOptions) => ({
   name: 'aegis',
   define() {
     return {
@@ -12,7 +12,8 @@ const aegisPlugin = (options: AegisPluginOptions, context) => ({
     };
   },
 
-  enhanceAppFiles: path.resolve(__dirname, 'enhanceAppFile'),
+  enhanceAppFiles: path.resolve(__dirname, 'enhanceAppFile.js'),
 });
 
 export default aegisPlugin;
+module.exports = aegisPlugin;

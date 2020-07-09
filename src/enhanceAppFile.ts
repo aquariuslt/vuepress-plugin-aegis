@@ -1,23 +1,31 @@
+/* global AEGIS_ID, aegis */
+
 const injectAegisScript = () => {
   let scriptElement = document.createElement('script');
   scriptElement.id = `aegis-script`;
   scriptElement.src = `https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js?_bid=3977`;
+  document.body.appendChild(scriptElement);
+  scriptElement.onload = (script) => {
+    window['aegis'] = new window['Aegis']({
+      // @ts-ignore
+      id: AEGIS_ID,
+      reportApiSpeed: true,
+      reportAssetSpeed: true
+    });
+  };
 
-  const tempScriptElement = document.getElementsByTagName(`script`)[0];
-  tempScriptElement.parentElement.insertBefore(scriptElement, tempScriptElement);
 };
 
 const injectPluginHooks = ({ router }) => {
-  if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined' && window['AEGIS_ID']) {
+  // @ts-ignore
+  if (typeof window !== 'undefined' && AEGIS_ID) {
     injectAegisScript();
-
-
     router.afterEach(() => {
-      const aegis = window['Aegis']({
-        id: window['AEGIS_ID'],
-        reportApiSpeed: true,
-        reportAssetSpeed: true
-      });
+      if (window['aegis']) {
+        console.log(`do report pv`);
+        // @ts-ignore
+        window['aegis'].reportPv(AEGIS_ID);
+      }
     });
   }
 
@@ -25,3 +33,4 @@ const injectPluginHooks = ({ router }) => {
 
 
 export default injectPluginHooks;
+module.exports = injectPluginHooks;
