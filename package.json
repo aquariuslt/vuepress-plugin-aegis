@@ -1,0 +1,117 @@
+{
+  "name": "vuepress-plugin-aegis",
+  "version": "0.0.1",
+  "description": "aegis vuepress plugin support router life cycle monitring",
+  "main": "dist/index.js",
+  "repository": "https://github.com/aquariuslt/vuepress-plugin-aegis",
+  "author": "aquariuslt <superaquariuslt@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "vuepress",
+    "vuepress-plguin",
+    "aegis",
+    "monitor"
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "release": "semantic-release"
+  },
+  "files": [
+    "dist",
+    "index.ts"
+  ],
+  "devDependencies": {
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@types/jest": "26.0.4",
+    "@types/node": "13.13.5",
+    "@typescript-eslint/eslint-plugin": "3.6.0",
+    "@typescript-eslint/parser": "3.6.0",
+    "eslint": "7.4.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "jest": "26.1.0",
+    "prettier": "2.0.5",
+    "reflect-metadata": "0.1.13",
+    "rimraf": "3.0.2",
+    "semantic-release": "17.1.1",
+    "ts-jest": "26.1.1",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.6"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "@typescript-eslint/camelcase": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-member-accessibility": "off",
+      "@typescript-eslint/no-parameter-properties": "off",
+      "@typescript-eslint/interface-name-prefix": "off"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "arrowParens": "always",
+    "proseWrap": "never",
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/src/__tests__/*.test.ts"
+    ],
+    "testEnvironment": "node",
+    "coverageDirectory": "<rootDir>/reports/coverage"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "docs",
+            "package.json",
+            "README.md",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@vuepress/shared-utils": "^1.5.2"
+  }
+}
