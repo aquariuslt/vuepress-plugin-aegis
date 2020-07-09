@@ -22,7 +22,6 @@ const injectPluginHooks = ({ router }) => {
     injectAegisScript();
     router.afterEach(() => {
       if (window['aegis']) {
-        console.log(`do report pv`);
         // @ts-ignore
         window['aegis'].reportPv(AEGIS_ID);
       }
