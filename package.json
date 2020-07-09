@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-aegis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "aegis vuepress plugin support router life cycle monitring",
   "main": "dist/index.js",
   "repository": "https://github.com/aquariuslt/vuepress-plugin-aegis",
