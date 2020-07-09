@@ -8,3 +8,21 @@
 
 
 > VuePress Plugin for [Aegis WebSDK](https://aegis.ivweb.io/#/)
+
+
+
+
+## Usage
+
+Add your aegis project id in `.vuepress/config.js`.
+
+```
+  plugins: [
+    [
+      'vuepress-plugin-aegis',
+      {
+        aegisId: 'xxxx'  // your aegis project id
+      }
+    ]
+  ]
+```
