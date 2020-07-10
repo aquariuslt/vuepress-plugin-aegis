@@ -110,8 +110,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "@vuepress/shared-utils": "^1.5.2"
   }
 }

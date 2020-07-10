@@ -5,7 +5,6 @@
     "removeComments": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "target": "es6",
@@ -14,6 +13,13 @@
     "rootDir": "./src",
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts", "**/test.*.ts", "__tests__"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/test.*.ts",
+    "__tests__"
+  ]
 }

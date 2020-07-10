@@ -31,5 +31,4 @@ const injectPluginHooks = ({ router }) => {
 };
 
 
-export default injectPluginHooks;
 module.exports = injectPluginHooks;
